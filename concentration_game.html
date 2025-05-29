@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS 神経衰弱ゲーム</title>
+    <link rel="stylesheet" href="concentration_game.css">
+</head>
+<body>
+    <div id="game-container">
+        <div id="start-screen" class="screen">
+            <h1>AWS 神経衰弱ゲーム</h1>
+            <p class="subtitle">AWSサービスのアイコンを記憶して、ペアを見つけよう！</p>
+            <button id="start-button">スタート</button>
+        </div>
+        
+        <div id="game-screen" class="screen hidden">
+            <div id="game-info">
+                <div id="timer">残り時間: <span id="time-left">60</span>秒</div>
+                <div id="mistakes">ミス: <span id="mistake-count">0</span>/10</div>
+            </div>
+            <div id="card-container"></div>
+        </div>
+        
+        <div id="game-over-screen" class="screen hidden">
+            <h1 id="result-title">GAME OVER</h1>
+            <p id="game-over-message"></p>
+            <button id="restart-button">もう一度プレイ</button>
+        </div>
+
+        <div id="congratulation-screen" class="screen hidden">
+            <div class="confetti-container"></div>
+            <h1 class="congratulation-title">Congratulation!</h1>
+            <p id="congratulation-message">おめでとう！すべてのカードを見つけました！</p>
+            <button id="congratulation-restart-button">もう一度プレイ</button>
+        </div>
+    </div>
+    <script src="concentration_game.js"></script>
+</body>
+</html>

@@ -1,0 +1,261 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #232f3e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #ffffff;
+}
+
+#game-container {
+    width: 800px;
+    max-width: 100%;
+    background-color: #0f1b2a;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 153, 0, 0.3);
+    padding: 20px;
+    text-align: center;
+    border: 2px solid #ff9900;
+}
+
+.screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 500px;
+}
+
+#start-screen {
+    background-image: url('https://d1.awsstatic.com/re19/Homepage-Redesign/UI/homepage-hero-bg-desktop.c12b4f1f3df8c0a1d6c2f3f4b8b5e6c7.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    position: relative;
+}
+
+#start-screen::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(15, 27, 42, 0.7);
+    border-radius: 8px;
+}
+
+#start-screen h1, #start-screen button {
+    position: relative;
+    z-index: 10;
+}
+
+.hidden {
+    display: none;
+}
+
+h1 {
+    color: #ff9900;
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px rgba(255, 153, 0, 0.5);
+}
+
+button {
+    background-color: #ff9900;
+    color: #232f3e;
+    border: none;
+    padding: 12px 24px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #ffffff;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 153, 0, 0.7);
+}
+
+#game-info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #ff9900;
+}
+
+#card-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+    width: 100%;
+}
+
+.card {
+    aspect-ratio: 3/4;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-back {
+    background-color: #232f3e;
+    background-image: url('https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png');
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 2px solid #ff9900;
+}
+
+.card-front {
+    background-color: #ffffff;
+    transform: rotateY(180deg);
+    border: 2px solid #ff9900;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+
+.card-front img {
+    max-width: 80%;
+    max-height: 65%;
+    object-fit: contain;
+    border-radius: 5px;
+    background-color: white;
+    padding: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 5px;
+}
+
+.service-name {
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 5px;
+    color: #232f3e;
+    font-family: 'Amazon Ember', Arial, sans-serif;
+}
+
+#game-over-message {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #ff9900;
+}
+.subtitle {
+    color: #ffffff;
+    margin-bottom: 30px;
+    font-size: 18px;
+    position: relative;
+    z-index: 10;
+}
+.subtitle {
+    color: #ffffff;
+    margin-bottom: 30px;
+    font-size: 18px;
+    position: relative;
+    z-index: 10;
+}
+
+/* クリア画面のスタイル */
+#congratulation-screen {
+    background-color: #0f1b2a;
+    position: relative;
+    overflow: hidden;
+}
+
+.congratulation-title {
+    color: #ff9900;
+    font-size: 48px;
+    text-shadow: 0 0 10px rgba(255, 153, 0, 0.7);
+    animation: pulse 1.5s infinite alternate;
+    margin-bottom: 20px;
+    z-index: 10;
+    position: relative;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+#congratulation-message {
+    color: #ffffff;
+    font-size: 24px;
+    margin-bottom: 30px;
+    z-index: 10;
+    position: relative;
+}
+
+#congratulation-restart-button {
+    z-index: 10;
+    position: relative;
+}
+
+/* 紙吹雪アニメーション */
+.confetti-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #ff9900;
+    opacity: 0.8;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(calc(100vh - 100px)) rotate(360deg);
+        opacity: 0.3;
+    }
+}
